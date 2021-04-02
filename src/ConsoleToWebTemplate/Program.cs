@@ -47,9 +47,12 @@ namespace ConsoleToWebTemplate
                                 {
                                     if (!IsRootRequest(context.Request))
                                         return; // Any other request then '/'
-                                        
+                                    var numberOfFoos = 5;
+                                    if (context.Request.Query.ContainsKey("numberOfFoos"))
+                                        numberOfFoos = int.Parse(context.Request.Query["numberOfFoos"]);
+
                                     var fooService = context.RequestServices.GetRequiredService<IFooService>();
-                                    await context.Response.WriteAsync(fooService.Foo(4));
+                                    await context.Response.WriteAsync(fooService.Foo(numberOfFoos));
                                 }
                             )));
     }
