@@ -7,7 +7,7 @@ using FuncR;
 using System;
 using System.Linq;
 
-namespace ConsoleToWebTemplate
+namespace ConsoleToWeb
 {
     interface IFooService
     {
